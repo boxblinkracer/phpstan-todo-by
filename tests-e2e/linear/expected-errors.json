@@ -1,0 +1,21 @@
+{
+    "totals": {
+        "errors": 0,
+        "file_errors": 1
+    },
+    "files": {
+        "src/tickets.php": {
+            "errors": 1,
+            "messages": [
+                {
+                    "message": "Should have been resolved in LIN-9: fix me.",
+                    "line": 3,
+                    "ignorable": false,
+                    "tip": "See https://linear.app/company/issue/LIN-9",
+                    "identifier": "todoBy.ticket"
+                }
+            ]
+        }
+    },
+    "errors": []
+}

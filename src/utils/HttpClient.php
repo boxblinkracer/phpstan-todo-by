@@ -11,10 +11,13 @@ final class HttpClient
     /**
      * @param non-empty-array<non-empty-string> $urls
      * @param list<string> $headers
+     * @param string|null $postContent
+     *
+     * @return array
      *
      * @return non-empty-array<non-empty-string, array{int, string}>
      */
-    public function getMulti(array $urls, array $headers): array
+    public function getMulti(array $urls, array $headers, ?string $postContent = null): array
     {
         $mh = curl_multi_init();
 
@@ -35,6 +38,11 @@ final class HttpClient
 
             if ([] !== $headers) {
                 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+            }
+
+            if (trim((string)$postContent) !== '') {
+                curl_setopt($curl, CURLOPT_POST, true);
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $postContent);
             }
 
             $handles[$url] = $curl;

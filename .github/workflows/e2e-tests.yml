@@ -34,7 +34,11 @@ jobs:
                         test-dir: tests-e2e/youtrack/
                         script: |
                             diff -w <(vendor/bin/phpstan analyse --error-format=prettyJson --no-progress | sed "s|$(pwd)/||") expected-errors.json
-
+                    -   os: ubuntu-latest
+                        php-version: '8.2'
+                        test-dir: tests-e2e/linear/
+                        script: |
+                            diff -w <(vendor/bin/phpstan analyse --error-format=prettyJson --no-progress | sed "s|$(pwd)/||") expected-errors.json
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4

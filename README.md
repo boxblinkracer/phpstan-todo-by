@@ -253,6 +253,19 @@ parameters:
                 # if credentials parameter is not empty, it will be used instead of this file.
                 # this file must not be committed into the repository!
                 credentialsFilePath: .secrets/youtrack-credentials.txt
+
+            linear:
+                # e.g. https://linear.app/your-company
+                server: https://linear.app/acme
+
+                # Linear token
+                # Get it from https://linear.app/your-company/settings/api
+                credentials: %env.LINEAR_TOKEN%
+
+                # path to a file containing a Linear token
+                # if credentials parameter is not empty, it will be used instead of this file.
+                # this file must not be committed into the repository!
+                credentialsFilePath: .secrets/linear-credentials.txt
 ```
 
 #### Jira Credentials

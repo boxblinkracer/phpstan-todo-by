@@ -56,6 +56,17 @@ final class TicketRuleConfigurationFactory
             );
         }
 
+        if ('linear' === $tracker) {
+            $fetcher = $this->container->getByType(LinearTicketStatusFetcher::class);
+
+            return new TicketRuleConfiguration(
+                $fetcher::getKeyPattern(),
+                ['done'],
+                $keyPrefixes,
+                $fetcher,
+            );
+        }
+
         throw new RuntimeException("Unsupported tracker type: $tracker");
     }
 }
